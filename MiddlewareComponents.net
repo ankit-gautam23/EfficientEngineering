@@ -1,0 +1,12 @@
+Correct order of middleware componenets plays a very vital role in any application or software, Let's have a look on the proper order of it.
+
+ - Exception Handler
+ - HSTS
+ - HttpsRedirection
+ - Static files
+ - Routing
+ - CORS
+ - Authentication
+ - Authorization
+ - Custom Middleware
+ - Endpoints
