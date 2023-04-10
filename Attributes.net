@@ -1,3 +1,5 @@
+Attributes of ASP.NET Core Actions:
+
 [HttpPost]
 [Route(api/orders)]
 [Consumes("application/json")]
@@ -8,3 +10,18 @@
 [ValidateModel]
 [SwaggerOperation("CreateOrder")]
 [SwaggerResponse(StatusCodes.Status201Created, "Done.")]
+
+public IActionResult CreateOrder([FromBody] Order order){
+  return CreatedRoute("GetOrder", new {id = order.id}, order);
+}
+
+HttpPost: Indicates that this action should respond to HTTP POST requests.
+Route: Specifies the URL path that this action should respond to.
+Consumes: Specifies the MIME type that the action can consume as input.
+Produces: Specifies the MIME type that the action can produce as output.
+Authorize: Authorized for 'customer' role.
+ValidateAntiForgeryToken: Protects against CSRF attacks.
+EnableCors: Enables CORS for this action, allowing it to be accessed from any origin.
+ValidateModel: Ensures that the input parameter meets required constraints.
+SwaggerOperation: Adds metadata for Swagger/OpenAPI.
+SwaggerResponse: Describing the possible HTTP response codes and their meanings.
